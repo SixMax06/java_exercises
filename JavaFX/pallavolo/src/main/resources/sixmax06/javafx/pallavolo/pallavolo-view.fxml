@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sixmax06.javafx.pallavolo.PallavoloController">
+    <left>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblCasa" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER" wrapText="true">
+                    <font>
+                        <Font size="64.0" />
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#btnCasaOnClick" prefWidth="200.0" text="CASA" textAlignment="CENTER">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <right>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="500.0" spacing="50.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblTrasferta" alignment="CENTER" contentDisplay="CENTER" textAlignment="CENTER">
+                    <font>
+                        <Font size="64.0" />
+                    </font>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#btnTrasfertaOnClick" prefWidth="200.0" text="TRASFERTA" textAlignment="CENTER">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </right>
+   <bottom>
+      <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
