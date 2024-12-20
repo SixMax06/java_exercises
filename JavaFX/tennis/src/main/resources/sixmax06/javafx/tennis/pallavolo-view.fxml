@@ -11,7 +11,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0">
                <children>
-                  <TextField alignment="CENTER" editable="false" maxWidth="100.0" text="Giocatore 1" />
+                  <TextField alignment="CENTER" editable="false" maxWidth="100.0" text="sixmax06.javafx.tennis.Giocatore 1" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" spacing="50.0">
                      <children>
                         <Button fx:id="btnAumentaG1" mnemonicParsing="false" prefWidth="200.0" text="Aumenta">
@@ -44,7 +44,7 @@
             </Button>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="300.0">
                <children>
-                  <TextField alignment="CENTER" maxWidth="100.0" text="Giocatore 2" />
+                  <TextField alignment="CENTER" maxWidth="100.0" text="sixmax06.javafx.tennis.Giocatore 2" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                      <children>
                         <Button fx:id="btnAumentaG2" mnemonicParsing="false" prefWidth="200.0" text="Aumenta">
@@ -75,7 +75,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Giocatore 1" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="sixmax06.javafx.tennis.Giocatore 1" />
                   <Label fx:id="lblSet1G1" alignment="CENTER" prefWidth="65.0" text="0" />
                   <Label fx:id="lblSet2G1" alignment="CENTER" prefWidth="65.0" text="0" />
                   <Label fx:id="lblSet3G1" alignment="CENTER" prefWidth="65.0" text="0" />
@@ -84,7 +84,7 @@
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Giocatore 2" />
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="sixmax06.javafx.tennis.Giocatore 2" />
                   <Label fx:id="lblSet1G2" alignment="CENTER" prefWidth="65.0" text="0" />
                   <Label fx:id="lblSet2G2" alignment="CENTER" prefWidth="65.0" text="0" />
                   <Label fx:id="lblSet3G2" alignment="CENTER" prefWidth="65.0" text="0" />
@@ -97,7 +97,7 @@
    <top>
       <HBox alignment="CENTER" prefHeight="50.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
-            <TextField alignment="CENTER" editable="false" prefWidth="200.0" text="Giocatore" />
+            <TextField alignment="CENTER" editable="false" prefWidth="200.0" text="sixmax06.javafx.tennis.Giocatore" />
             <TextField alignment="CENTER" editable="false" prefWidth="65.0" text="Set No. 1" />
             <TextField alignment="CENTER" editable="false" prefWidth="65.0" text="Set No. 2" />
             <TextField alignment="CENTER" editable="false" prefWidth="65.0" text="Set No. 3" />
