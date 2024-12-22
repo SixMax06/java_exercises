@@ -1,12 +1,20 @@
 package sixmax06.javafx.tennis;
 
 public class Giocatore {
-    private int punteggio, set, game;
+    private Contatore[] game;
+    private String nome;
+    private int gameInCorso, gameVinti;
 
-    public Giocatore() {
-        punteggio = 0;
-        set = 0;
-        game = 0;
+    public Giocatore(String nome) {
+        this.nome = nome;
+        game = new Contatore[5];
+        gameInCorso = 0;
+        gameVinti = 0;
     }
 
+
+
+    public String getNome() {
+        return nome;
+    }
 }
