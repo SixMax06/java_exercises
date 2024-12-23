@@ -75,21 +75,21 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Label fx:id="lblNomeG1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 1" />
-                  <Label fx:id="lblSet1G1" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet2G1" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet3G1" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet4G1" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet5G1" alignment="CENTER" prefWidth="80.0" text="0" />
+                  <Label fx:id="lblNomeG1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" />
+                  <Label fx:id="lblSet1G1" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet2G1" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet3G1" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet4G1" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet5G1" alignment="CENTER" prefWidth="80.0" />
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Label fx:id="lblNomeG2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 2" />
-                  <Label fx:id="lblSet1G2" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet2G2" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet3G2" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet4G2" alignment="CENTER" prefWidth="80.0" text="0" />
-                  <Label fx:id="lblSet5G2" alignment="CENTER" prefWidth="80.0" text="0" />
+                  <Label fx:id="lblNomeG2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" />
+                  <Label fx:id="lblSet1G2" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet2G2" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet3G2" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet4G2" alignment="CENTER" prefWidth="80.0" />
+                  <Label fx:id="lblSet5G2" alignment="CENTER" prefWidth="80.0" />
                </children></HBox>
          </children>
       </VBox>

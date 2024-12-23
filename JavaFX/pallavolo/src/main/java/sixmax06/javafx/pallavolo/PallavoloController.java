@@ -22,7 +22,8 @@ public class PallavoloController {
 
     private void checkVantaggio() {
         if (this.casa.getPunteggio() == this.casa.getMAX() - 1 && this.trasferta.getPunteggio() == this.trasferta.getMAX() - 1) {
-            this.casa.setMAX(this.casa.getMAX() + 1); this.trasferta.setMAX(this.trasferta.getMAX() + 1);
+            this.casa.setMAX(this.casa.getMAX() + 1);
+            this.trasferta.setMAX(this.trasferta.getMAX() + 1);
         }
     }
 
@@ -31,7 +32,8 @@ public class PallavoloController {
         if (this.casa.isVittoria()) {
             this.trasferta.resetPunteggio();
             this.casa.resetVittoria();
-            this.casa.setMAX(this.MAX); this.trasferta.setMAX(this.MAX);
+            this.casa.setMAX(this.MAX);
+            this.trasferta.setMAX(this.MAX);
             this.lblTrasferta.setText(trasferta.toString());
         }
         this.checkVantaggio();
@@ -43,7 +45,8 @@ public class PallavoloController {
         if (this.trasferta.isVittoria()) {
             this.casa.resetPunteggio();
             this.trasferta.resetVittoria();
-            this.casa.setMAX(this.MAX); this.trasferta.setMAX(this.MAX);
+            this.casa.setMAX(this.MAX);
+            this.trasferta.setMAX(this.MAX);
             this.lblCasa.setText(casa.toString());
         }
         this.checkVantaggio();
@@ -51,7 +54,9 @@ public class PallavoloController {
     }
 
     public void btnResetOnClick(ActionEvent actionEvent) {
-        this.casa.reset(); this.trasferta.reset();
-        this.lblCasa.setText(casa.toString()); this.lblTrasferta.setText(trasferta.toString());
+        this.casa.reset();
+        this.trasferta.reset();
+        this.lblCasa.setText(casa.toString());
+        this.lblTrasferta.setText(trasferta.toString());
     }
 }

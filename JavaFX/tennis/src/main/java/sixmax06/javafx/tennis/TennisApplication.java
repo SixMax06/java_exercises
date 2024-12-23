@@ -10,7 +10,7 @@ import java.io.IOException;
 public class TennisApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(TennisApplication.class.getResource("pallavolo-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(TennisApplication.class.getResource("tennis-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);

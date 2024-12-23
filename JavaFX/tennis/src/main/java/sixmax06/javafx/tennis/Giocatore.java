@@ -7,17 +7,16 @@ public class Giocatore {
 
     public Giocatore(String nome) {
         this.nome = nome;
-        game = new Contatore[5];
         gameVinti = 0;
+        game = new Contatore[5];
+        for (int i = 0; i < game.length; i++) game[i] = new Contatore();
     }
 
     public int incrementa(int index) {
-        Contatore conta = game[index];
+        if (game[index] != null) {
+            game[index].incrementaPunteggio();
 
-        if (conta != null) {
-            conta.incrementaPunteggio();
-
-            if (conta.getSet() == 6) {
+            if (game[index].getSet() == 6) {
                 gameVinti++;
                 return index + 1;
             }
@@ -27,10 +26,8 @@ public class Giocatore {
     }
 
     public void decrementa(int index) {
-        Contatore conta = game[index];
-
-        if (conta != null) {
-            conta.decrementaPunteggio();
+        if (game[index] != null) {
+            game[index].decrementaPunteggio();
         }
     }
 
