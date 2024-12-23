@@ -8,7 +8,7 @@ public class Contatore {
         this.set = 0;
     }
 
-    public void incrementa() {
+    public void incrementaPunteggio() {
         punteggio++;
 
         if (punteggio == 4) {
@@ -17,8 +17,9 @@ public class Contatore {
         }
     }
 
-    public void decrementa() {
+    public void decrementaPunteggio() {
         punteggio--;
+
         if (punteggio < 0) {
             set--;
             punteggio = 3;
@@ -31,5 +32,14 @@ public class Contatore {
 
     public int getSet() {
         return set;
+    }
+
+    public void resetContatore() {
+        set = 0; punteggio = 0;
+    }
+
+    @Override
+    public String toString() {
+        return set + " | " + punteggio;
     }
 }

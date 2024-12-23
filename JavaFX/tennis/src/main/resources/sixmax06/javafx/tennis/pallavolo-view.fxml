@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sixmax06.javafx.tennis.TennisController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
          <children>
@@ -14,7 +14,7 @@
                   <TextField alignment="CENTER" editable="false" maxWidth="100.0" text="Giocatore 1" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="300.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btnAumentaG1" mnemonicParsing="false" prefWidth="200.0" text="Aumenta">
+                        <Button fx:id="btnAumentaG1" mnemonicParsing="false" onAction="#btnAumentaG1OnClick" prefWidth="200.0" text="Aumenta">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -22,7 +22,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnDiminuisciG1" mnemonicParsing="false" prefWidth="200.0" text="Diminuisci">
+                        <Button fx:id="btnDiminuisciG1" mnemonicParsing="false" onAction="#btnDiminuisciG1OnClick" prefWidth="200.0" text="Diminuisci">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -34,7 +34,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Button fx:id="btnReset" alignment="CENTER" mnemonicParsing="false" text="RESET">
+            <Button fx:id="btnReset" alignment="CENTER" mnemonicParsing="false" onAction="#btnResetOnClick" text="RESET">
                <font>
                   <Font size="24.0" />
                </font>
@@ -47,7 +47,7 @@
                   <TextField alignment="CENTER" editable="false" maxWidth="100.0" text="Giocatore 2" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
                      <children>
-                        <Button fx:id="btnAumentaG2" mnemonicParsing="false" prefWidth="200.0" text="Aumenta">
+                        <Button fx:id="btnAumentaG2" mnemonicParsing="false" onAction="#btnAumentaG2OnClick" prefWidth="200.0" text="Aumenta">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -55,7 +55,7 @@
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnDiminuisciG2" mnemonicParsing="false" prefWidth="200.0" text="Diminuisci">
+                        <Button fx:id="btnDiminuisciG2" mnemonicParsing="false" onAction="#btnDiminuisciG2OnClick" prefWidth="200.0" text="Diminuisci">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -75,7 +75,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Label fx:id="lblNameG1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 1" />
+                  <Label fx:id="lblNomeG1" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 1" />
                   <Label fx:id="lblSet1G1" alignment="CENTER" prefWidth="80.0" text="0" />
                   <Label fx:id="lblSet2G1" alignment="CENTER" prefWidth="80.0" text="0" />
                   <Label fx:id="lblSet3G1" alignment="CENTER" prefWidth="80.0" text="0" />
@@ -84,7 +84,7 @@
                </children></HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Label fx:id="lblNameG2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 2" />
+                  <Label fx:id="lblNomeG2" alignment="CENTER" prefHeight="17.0" prefWidth="150.0" text="Giocatore 2" />
                   <Label fx:id="lblSet1G2" alignment="CENTER" prefWidth="80.0" text="0" />
                   <Label fx:id="lblSet2G2" alignment="CENTER" prefWidth="80.0" text="0" />
                   <Label fx:id="lblSet3G2" alignment="CENTER" prefWidth="80.0" text="0" />
