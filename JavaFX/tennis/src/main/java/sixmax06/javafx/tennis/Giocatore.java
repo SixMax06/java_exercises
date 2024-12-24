@@ -12,17 +12,21 @@ public class Giocatore {
         for (int i = 0; i < game.length; i++) game[i] = new Contatore();
     }
 
-    public int incrementa(int index) {
+    public void incrementa(int index) throws VittoriaSet, VittoriaGame, Vittoria {
         if (game[index] != null) {
-            game[index].incrementaPunteggio();
-
-            if (game[index].getSet() == 6) {
-                gameVinti++;
-                return index + 1;
+            try {
+                game[index].incrementaPunteggio();
+            } catch (VittoriaSet vittoriaSet) {
+                if (game[index].getSet() == 6) {
+                    gameVinti++;
+                    if (gameVinti == 3) {
+                        throw new Vittoria();
+                    }
+                    throw new VittoriaGame();
+                }
+                throw new VittoriaSet();
             }
-
         }
-        return index;
     }
 
     public void decrementa(int index) {
@@ -37,6 +41,10 @@ public class Giocatore {
 
     public String printGame(int index) {
         return game[index].toString();
+    }
+
+    public void resetPunteggio(int index) {
+        game[index].resetPunteggio();
     }
 
     public void resetGiocatore() {
