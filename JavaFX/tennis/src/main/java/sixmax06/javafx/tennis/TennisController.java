@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 public class TennisController {
     private Giocatore g1, g2;
     private int gameInCorso = 0;
+    private boolean vittoria = false;
 
     @FXML
     private Label lblNomeG1, lblNomeG2;
@@ -27,6 +28,8 @@ public class TennisController {
     private Label lblSet5G1, lblSet5G2;
 
     @FXML
+    private Label lblVincitore;
+
     private Label[] lblG1, lblG2;
 
     @FXML
@@ -61,16 +64,19 @@ public class TennisController {
     }
 
     public void btnAumentaG1OnClick(ActionEvent event) {
-        try {
-            g1.incrementa(gameInCorso);
-        } catch (VittoriaSet e) {
-            g2.resetPunteggio(gameInCorso);
-        } catch (VittoriaGame e) {
-            g2.resetPunteggio(gameInCorso);
-            stampaTabellone();
-            gameInCorso++;
-        } catch (Vittoria e) {
-            throw new RuntimeException(e);
+        if (!vittoria) {
+            try {
+                g1.incrementa(gameInCorso);
+            } catch (VittoriaSet e) {
+                g2.resetPunteggio(gameInCorso);
+            } catch (VittoriaGame e) {
+                g2.resetPunteggio(gameInCorso);
+                stampaTabellone();
+                gameInCorso++;
+            } catch (Vittoria e) {
+                vittoria = true;
+                lblVincitore.setText(g1.getNome() + " vince la partita!");
+            }
         }
 
         stampaTabellone();
@@ -82,16 +88,19 @@ public class TennisController {
     }
 
     public void btnAumentaG2OnClick(ActionEvent event) {
-        try {
-            g2.incrementa(gameInCorso);
-        } catch (VittoriaSet e) {
-            g1.resetPunteggio(gameInCorso);
-        } catch (VittoriaGame e) {
-            g1.resetPunteggio(gameInCorso);
-            stampaTabellone();
-            gameInCorso++;
-        } catch (Vittoria e) {
-            throw new RuntimeException(e);
+        if (!vittoria) {
+            try {
+                g2.incrementa(gameInCorso);
+            } catch (VittoriaSet e) {
+                g1.resetPunteggio(gameInCorso);
+            } catch (VittoriaGame e) {
+                g1.resetPunteggio(gameInCorso);
+                stampaTabellone();
+                gameInCorso++;
+            } catch (Vittoria e) {
+                vittoria = true;
+                lblVincitore.setText(g2.getNome() + " vince la partita!");
+            }
         }
 
         stampaTabellone();
@@ -106,7 +115,8 @@ public class TennisController {
         g1.resetGiocatore();
         g2.resetGiocatore();
         gameInCorso = 0;
+        vittoria = false;
+        lblVincitore.setText("");
         resetTabellone();
     }
-
 }

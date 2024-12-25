@@ -51,7 +51,8 @@ public class Contatore {
     }
 
     public void resetContatore() {
-        set = 0; punteggio = 0;
+        set = 0;
+        punteggio = 0;
     }
 
     @Override

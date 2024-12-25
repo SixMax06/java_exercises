@@ -12,7 +12,7 @@ public class TennisApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(TennisApplication.class.getResource("tennis-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 400);
-        stage.setTitle("Hello!");
+        stage.setTitle("Tabellone Tennis");
         stage.setScene(scene);
         stage.show();
     }
