@@ -49,6 +49,16 @@ public class TennisController {
         stampaTabellone();
     }
 
+    public void attivaVantaggio(int index) {
+        g1.attivaVantaggio(index);
+        g2.attivaVantaggio(index);
+    }
+
+    public void resetVantaggio(int index) {
+        g1.resetVantaggio(index);
+        g2.resetVantaggio(index);
+    }
+
     public void stampaTabellone() {
         lblG1[gameInCorso].setText(g1.printGame(gameInCorso));
         lblG2[gameInCorso].setText(g2.printGame(gameInCorso));
@@ -63,12 +73,27 @@ public class TennisController {
         }
     }
 
+    public void checkVantaggio() {
+        if (g1.getPunteggio(gameInCorso) >= 3 && g2.getPunteggio(gameInCorso) >= 3) {
+            if (g1.getPunteggio(gameInCorso) == g2.getPunteggio(gameInCorso)) {
+                attivaVantaggio(gameInCorso);
+            }
+        } else resetVantaggio(gameInCorso);
+
+        if (g1.getPunteggio(gameInCorso) == 4 && g2.getPunteggio(gameInCorso) == 4) {
+            g1.decrementa(gameInCorso);
+            g2.decrementa(gameInCorso);
+        }
+    }
+
     public void btnAumentaG1OnClick(ActionEvent event) {
         if (!vittoria) {
             try {
                 g1.incrementa(gameInCorso);
+                checkVantaggio();
             } catch (VittoriaSet e) {
                 g2.resetPunteggio(gameInCorso);
+                resetVantaggio(gameInCorso);
             } catch (VittoriaGame e) {
                 g2.resetPunteggio(gameInCorso);
                 stampaTabellone();
@@ -83,7 +108,7 @@ public class TennisController {
     }
 
     public void btnDiminuisciG1OnClick(ActionEvent event) {
-        g1.decrementa(gameInCorso);
+        if (!vittoria) g1.decrementa(gameInCorso);
         stampaTabellone();
     }
 
@@ -91,8 +116,10 @@ public class TennisController {
         if (!vittoria) {
             try {
                 g2.incrementa(gameInCorso);
+                checkVantaggio();
             } catch (VittoriaSet e) {
                 g1.resetPunteggio(gameInCorso);
+                resetVantaggio(gameInCorso);
             } catch (VittoriaGame e) {
                 g1.resetPunteggio(gameInCorso);
                 stampaTabellone();
@@ -107,7 +134,7 @@ public class TennisController {
     }
 
     public void btnDiminuisciG2OnClick(ActionEvent event) {
-        g2.decrementa(gameInCorso);
+        if (!vittoria) g2.decrementa(gameInCorso);
         stampaTabellone();
     }
 

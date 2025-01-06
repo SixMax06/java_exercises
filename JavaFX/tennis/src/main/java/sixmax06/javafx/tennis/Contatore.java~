@@ -14,7 +14,7 @@ public class Contatore {
     public void incrementaPunteggio() throws VittoriaSet {
         punteggio++;
 
-        if (punteggio >= maxPunteggio) {
+        if (punteggio == maxPunteggio) {
             set++;
             punteggio = 0;
             throw new VittoriaSet();
