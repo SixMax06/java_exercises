@@ -1,50 +1,50 @@
 package sixmax06.javafx.tennis;
 
 public class Giocatore {
-    private Contatore[] game;
+    private Contatore[] set;
     private final String nome;
-    private int gameVinti, maxSet;
+    private int setVinti, maxSet;
 
     public Giocatore(String nome) {
         this.nome = nome;
-        gameVinti = 0;
+        setVinti = 0;
         this.maxSet = 6;
-        game = new Contatore[5];
-        for (int i = 0; i < game.length; i++) game[i] = new Contatore();
+        set = new Contatore[5];
+        for (int i = 0; i < set.length; i++) set[i] = new Contatore();
     }
 
     public void incrementa(int index) throws VittoriaSet, VittoriaGame, Vittoria {
-        if (game[index] != null) {
+        if (set[index] != null) {
             try {
-                game[index].incrementaPunteggio();
-            } catch (VittoriaSet vittoriaSet) {
-                if (game[index].getSet() == maxSet) {
-                    gameVinti++;
-                    if (gameVinti == 3) {
+                set[index].incrementaPunteggio();
+            } catch (VittoriaGame vittoriaGame) {
+                if (set[index].getGame() == maxSet) {
+                    setVinti++;
+                    if (setVinti == 3) {
                         throw new Vittoria();
                     }
-                    throw new VittoriaGame();
+                    throw new VittoriaSet();
                 }
-                throw new VittoriaSet();
+                throw new VittoriaGame();
             }
         }
     }
 
     public void decrementa(int index) {
-        if (game[index] != null) {
-            game[index].decrementaPunteggio();
+        if (set[index] != null) {
+            set[index].decrementaPunteggio();
         }
     }
 
     public void attivaVantaggio(int index) {
-        if (game[index] != null) {
-            game[index].attivaVantaggio();
+        if (set[index] != null) {
+            set[index].attivaVantaggio();
         }
     }
 
     public void resetVantaggio(int index) {
-        if (game[index] != null) {
-            game[index].resetVantaggio();
+        if (set[index] != null) {
+            set[index].resetVantaggio();
         }
     }
 
@@ -53,19 +53,19 @@ public class Giocatore {
     }
 
     public int getPunteggio(int index) {
-        return game[index].getPunteggio();
+        return set[index].getPunteggio();
     }
 
     public String printGame(int index) {
-        return game[index].toString();
+        return set[index].toString();
     }
 
     public void resetPunteggio(int index) {
-        game[index].resetPunteggio();
+        set[index].resetPunteggio();
     }
 
     public void resetGiocatore() {
-        gameVinti = 0;
-        for (Contatore c : game) c.resetContatore();
+        setVinti = 0;
+        for (Contatore c : set) c.resetContatore();
     }
 }

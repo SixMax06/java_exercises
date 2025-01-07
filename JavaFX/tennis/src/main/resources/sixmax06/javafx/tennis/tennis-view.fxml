@@ -109,23 +109,23 @@
       <HBox alignment="CENTER" prefHeight="50.0" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
             <TextField alignment="CENTER" editable="false" prefWidth="150.0" text="Giocatore" />
-            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Game No. 1">
+            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Set No. 1">
                <font>
                   <Font size="11.0" />
                </font></TextField>
-            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Game No. 2">
+            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Set No. 2">
                <font>
                   <Font size="11.0" />
                </font></TextField>
-            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Game No. 3">
+            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Set No. 3">
                <font>
                   <Font size="11.0" />
                </font></TextField>
-            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Game No. 4">
+            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Set No. 4">
                <font>
                   <Font size="11.0" />
                </font></TextField>
-            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Game No. 5">
+            <TextField alignment="CENTER" editable="false" prefWidth="80.0" text="Set No. 5">
                <font>
                   <Font size="11.0" />
                </font></TextField>

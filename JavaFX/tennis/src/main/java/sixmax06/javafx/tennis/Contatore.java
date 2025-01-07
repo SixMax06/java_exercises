@@ -1,32 +1,32 @@
 package sixmax06.javafx.tennis;
 
 public class Contatore {
-    private int punteggio, set;
+    private int punteggio, game;
     private int maxPunteggio;
     private final String[] punteggioPrint = {"0", "15", "30", "40", "50"};
 
     public Contatore() {
         this.punteggio = 0;
-        this.set = 0;
+        this.game = 0;
         this.maxPunteggio = 4;
     }
 
-    public void incrementaPunteggio() throws VittoriaSet {
+    public void incrementaPunteggio() throws VittoriaGame {
         punteggio++;
 
         if (punteggio >= maxPunteggio) {
-            set++;
+            game++;
             punteggio = 0;
-            throw new VittoriaSet();
+            throw new VittoriaGame();
         }
     }
 
     public void decrementaPunteggio() {
-        if (set == 0 && punteggio == 0) return;
+        if (game == 0 && punteggio == 0) return;
         punteggio--;
 
         if (punteggio < 0) {
-            set--;
+            game--;
             punteggio = 3;
         }
     }
@@ -43,8 +43,8 @@ public class Contatore {
         return punteggio;
     }
 
-    public int getSet() {
-        return set;
+    public int getGame() {
+        return game;
     }
 
     public void resetPunteggio() {
@@ -52,13 +52,13 @@ public class Contatore {
     }
 
     public void resetContatore() {
-        set = 0;
+        game = 0;
         punteggio = 0;
     }
 
     @Override
     public String toString() {
-        String print = set + " | ";
+        String print = game + " | ";
 
         if (punteggio >= 4) print += "VAN";
         else print += punteggioPrint[punteggio];
