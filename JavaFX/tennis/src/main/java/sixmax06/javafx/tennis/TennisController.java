@@ -34,8 +34,8 @@ public class TennisController {
 
     @FXML
     public void initialize() {
-        lblG1 = new Label[]{lblSet1G1, lblSet2G1, lblSet3G1, lblSet4G1, lblSet5G1};
-        lblG2 = new Label[]{lblSet1G2, lblSet2G2, lblSet3G2, lblSet4G2, lblSet5G2};
+        lblG1 = new Label[] {lblSet1G1, lblSet2G1, lblSet3G1, lblSet4G1, lblSet5G1};
+        lblG2 = new Label[] {lblSet1G2, lblSet2G2, lblSet3G2, lblSet4G2, lblSet5G2};
 
         String nomeG1 = "Jannik Sinner";
         String nomeG2 = "Novak Djokovic";
@@ -108,7 +108,11 @@ public class TennisController {
     }
 
     public void btnDiminuisciG1OnClick(ActionEvent event) {
-        if (!vittoria) g1.decrementa(gameInCorso);
+        if (!vittoria) {
+            g1.decrementa(gameInCorso);
+            checkVantaggio();
+        }
+
         stampaTabellone();
     }
 
@@ -134,7 +138,11 @@ public class TennisController {
     }
 
     public void btnDiminuisciG2OnClick(ActionEvent event) {
-        if (!vittoria) g2.decrementa(gameInCorso);
+        if (!vittoria) {
+            g2.decrementa(gameInCorso);
+            checkVantaggio();
+        }
+
         stampaTabellone();
     }
 
