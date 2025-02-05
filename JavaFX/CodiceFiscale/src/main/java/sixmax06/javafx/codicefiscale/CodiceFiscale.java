@@ -1,5 +1,9 @@
 package sixmax06.javafx.codicefiscale;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeMap;
@@ -7,16 +11,62 @@ import java.util.TreeMap;
 public class CodiceFiscale {
     private String cognome, nome, dataNascita, siglaComune, carattereControllo;
     private String codiceFiscale;
-    private final ArrayList<Character> vocali = new ArrayList<>(Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'));
-    private final char[] lettereMesi = {'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T'};
+    private final ArrayList<Character> vocali;
+    private final char[] lettereMesi;
+    private final TreeMap<Character, Integer> controlloPari, controlloDispari;
+    private final TreeMap<String, String> comuni;
 
     public CodiceFiscale() {
-        cognome = "";
-        nome = "";
-        dataNascita = "";
-        siglaComune = "";
-        carattereControllo = "";
-        codiceFiscale = "";
+        this.cognome = "";
+        this.nome = "";
+        this.dataNascita = "";
+        this.siglaComune = "";
+        this.carattereControllo = "";
+        this.codiceFiscale = "";
+
+        this.lettereMesi = new char[]{'A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T'};
+        this.vocali = new ArrayList<>(Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'));
+
+        this.comuni = new TreeMap<>();
+        this.controlloPari = new TreeMap<>();
+        this.controlloDispari = new TreeMap<>();
+
+        try {
+            FileReader fr = new FileReader("lista_comuni.csv");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                String[] split = line.split(";");
+                comuni.put(split[0], split[1]);
+            }
+
+            fr = new FileReader("caratteri_dispari.csv");
+            br = new BufferedReader(fr);
+
+            while ((line = br.readLine()) != null) {
+                String[] split = line.split(";");
+                controlloDispari.put(split[0].charAt(0), Integer.parseInt(split[1]));
+            }
+
+            fr = new FileReader("caratteri_pari.csv");
+            br = new BufferedReader(fr);
+
+            while ((line = br.readLine()) != null) {
+                String[] split = line.split(";");
+                controlloPari.put(split[0].charAt(0), Integer.parseInt(split[1]));
+            }
+
+            br.close(); fr.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + e.getMessage());
+            System.exit(10001);
+
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+            System.exit(10002);
+        }
     }
 
     public void calcolaCognome(String cognome) {
@@ -104,19 +154,32 @@ public class CodiceFiscale {
         this.dataNascita = siglaAnno + siglaMese + siglaGiorno;
     }
 
-    public void calcolaSiglaComune(TreeMap<String, String> comuni, String comune) {
+    public void calcolaSiglaComune(String comune) {
         if (comuni.containsKey(comune)) this.siglaComune = comuni.get(comune);
     }
 
-    public void calcolaCarattereControllo() {
+    private void calcolaCarattereControllo() {
+        int somma = 0;
+        for (int i = 0; i < this.codiceFiscale.length(); i++) {
+            if (i % 2 == 1) somma += this.controlloPari.get(this.codiceFiscale.charAt(i));
+            else somma += this.controlloDispari.get(this.codiceFiscale.charAt(i));
+        }
+        somma %= 26;
+        this.carattereControllo = Character.toString('A' + somma);
     }
 
     public void calcolaCodiceFiscale() {
-        this.codiceFiscale = this.cognome + this.nome + this.dataNascita + this.siglaComune + carattereControllo;
+        this.codiceFiscale = this.cognome + this.nome + this.dataNascita + this.siglaComune;
+        calcolaCarattereControllo();
+        this.codiceFiscale += this.carattereControllo;
     }
 
     public String getCodiceFiscale() {
         return codiceFiscale;
+    }
+
+    public TreeMap<String, String> getComuni() {
+        return this.comuni;
     }
 
 }
