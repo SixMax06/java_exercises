@@ -1,6 +1,5 @@
 package sixmax06.javafx.codicefiscale;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -33,7 +32,7 @@ public class CodiceFiscaleController {
         cbbLuogoNascita.getItems().addAll(this.cf.getComuni().keySet());
     }
 
-    public void btnCalcolaCodiceFiscaleOnClick(ActionEvent actionEvent) {
+    public void btnCalcolaCodiceFiscaleOnClick() {
         String[] dn = this.dtpDataNascita.getValue().toString().split("-");
         int[] dataNascita = new int[]{Integer.parseInt(dn[0]), Integer.parseInt(dn[1]), Integer.parseInt(dn[2])};
         boolean genere;
