@@ -14,7 +14,7 @@ public class CodiceFiscale {
     private final ArrayList<Character> vocali;
     private final char[] lettereMesi;
     private final TreeMap<Character, Integer> controlloPari, controlloDispari;
-    private final TreeMap<String, String> comuni;
+    private final TreeMap<String, String> comuni, statiEsteri;
 
     public CodiceFiscale() {
         this.cognome = "";
@@ -28,6 +28,7 @@ public class CodiceFiscale {
         this.vocali = new ArrayList<>(Arrays.asList('a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'));
 
         this.comuni = new TreeMap<>();
+        this.statiEsteri = new TreeMap<>();
         this.controlloPari = new TreeMap<>();
         this.controlloDispari = new TreeMap<>();
 
@@ -39,6 +40,14 @@ public class CodiceFiscale {
             while ((line = br.readLine()) != null) {
                 String[] split = line.split(";");
                 comuni.put(split[0], split[1]);
+            }
+
+            fr = new FileReader("lista_statiEsteri.csv");
+            br = new BufferedReader(fr);
+
+            while ((line = br.readLine()) != null) {
+                String[] split = line.split(";");
+                statiEsteri.put(split[0], split[1]);
             }
 
             fr = new FileReader("caratteri_dispari.csv");
@@ -57,7 +66,8 @@ public class CodiceFiscale {
                 controlloPari.put(split[0].charAt(0), Integer.parseInt(split[1]));
             }
 
-            br.close(); fr.close();
+            br.close();
+            fr.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
@@ -69,7 +79,9 @@ public class CodiceFiscale {
         }
     }
 
-    public void calcolaCognome(String cognome) {
+    public void calcolaCognome(String cognome) throws Exception {
+        if (cognome.isEmpty()) throw new Exception();
+
         this.cognome = "";
 
         int contaConsonanti = 0;
@@ -99,8 +111,11 @@ public class CodiceFiscale {
         this.cognome = this.cognome.toUpperCase();
     }
 
-    public void calcolaNome(String nome) {
+    public void calcolaNome(String nome) throws Exception {
+        if (nome.isEmpty()) throw new Exception();
+
         this.nome = "";
+
         int contaConsonanti = 0;
         for (int i = 0; i < nome.length(); i++) {
             char c = nome.charAt(i);
@@ -154,8 +169,12 @@ public class CodiceFiscale {
         this.dataNascita = siglaAnno + siglaMese + siglaGiorno;
     }
 
-    public void calcolaSiglaComune(String comune) {
-        if (comuni.containsKey(comune)) this.siglaComune = comuni.get(comune);
+    public void calcolaSiglaComunePaese(String paese, boolean estero) throws Exception {
+        if (estero) {
+            if (statiEsteri.containsKey(paese)) this.siglaComune = statiEsteri.get(paese);
+            else throw new Exception();
+        } else if (comuni.containsKey(paese)) this.siglaComune = comuni.get(paese);
+        else throw new Exception();
     }
 
     private void calcolaCarattereControllo() {
@@ -182,4 +201,7 @@ public class CodiceFiscale {
         return this.comuni;
     }
 
+    public TreeMap<String, String> getStatiEsteri() {
+        return this.statiEsteri;
+    }
 }
