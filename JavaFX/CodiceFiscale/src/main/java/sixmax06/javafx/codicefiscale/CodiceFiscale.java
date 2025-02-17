@@ -126,7 +126,7 @@ public class CodiceFiscale {
             if (contaConsonanti == 4) break;
         }
 
-        if (contaConsonanti < 3) {
+        if (contaConsonanti <= 3) {
             contaConsonanti = 0;
             this.nome = "";
             for (int i = 0; i < nome.length(); i++) {
