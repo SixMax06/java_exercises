@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
@@ -11,7 +12,7 @@
         <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
     </padding>
    <children>
-      <Label text="Calcolo del Codice Fiscale">
+      <Label text="Calcolo del Codice Fiscale" textFill="#00a000">
          <font>
             <Font size="48.0" />
          </font>
@@ -19,7 +20,7 @@
       <Line endX="100.0" layoutX="511.0" layoutY="255.0" scaleX="5.0" startX="-100.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Label prefWidth="250.0" text="Cognome">
+            <Label prefWidth="250.0" text="Cognome" textFill="#006000">
                <font>
                   <Font size="24.0" />
                </font>
@@ -33,7 +34,7 @@
       </HBox>
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Label prefWidth="250.0" text="Nome">
+            <Label prefWidth="250.0" text="Nome" textFill="#006000">
                <font>
                   <Font size="24.0" />
                </font>
@@ -48,12 +49,12 @@
       <Line endX="100.0" scaleX="5.0" startX="-100.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Label prefWidth="250.0" text="Genere">
+            <Label prefWidth="250.0" text="Genere" textFill="#006000">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <RadioButton fx:id="rdbGenereMaschio" mnemonicParsing="false" selected="true" text="Maschio">
+            <RadioButton fx:id="rdbGenereMaschio" alignment="CENTER_LEFT" mnemonicParsing="false" prefWidth="200.0" selected="true" text="Maschio">
                <font>
                   <Font size="20.0" />
                </font>
@@ -61,7 +62,7 @@
                   <ToggleGroup fx:id="rdbGroupGenere" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rdbGenereFemmina" mnemonicParsing="false" text="Femmina" toggleGroup="$rdbGroupGenere">
+            <RadioButton fx:id="rdbGenereFemmina" alignment="CENTER_LEFT" mnemonicParsing="false" prefWidth="200.0" text="Femmina" toggleGroup="$rdbGroupGenere">
                <font>
                   <Font size="20.0" />
                </font>
@@ -71,12 +72,23 @@
       <Line endX="100.0" scaleX="5.0" startX="-100.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Label prefWidth="250.0" text="Luogo di Nascita">
+            <Label prefWidth="250.0" text="Data di Nascita" textFill="#006000">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbbLuogoNascita" editable="true" prefHeight="40.0" prefWidth="400.0" />
+            <DatePicker fx:id="dtpDataNascita" prefHeight="40.0" prefWidth="300.0" promptText="Data" />
+         </children>
+      </HBox>
+      <Line endX="100.0" scaleX="5.0" startX="-100.0" />
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+         <children>
+            <Label prefWidth="250.0" text="Luogo di Nascita" textFill="#006000">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbbLuogoNascita" editable="true" prefHeight="40.0" prefWidth="400.0" promptText="Luogo" />
             <CheckBox fx:id="ckbEstero" mnemonicParsing="false" onAction="#ckbEsteroOnAction" text="Estero">
                <font>
                   <Font size="20.0" />
@@ -85,33 +97,28 @@
          </children>
       </HBox>
       <Line endX="100.0" scaleX="5.0" startX="-100.0" />
-      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
-         <children>
-            <Label prefWidth="250.0" text="Data di Nascita">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <DatePicker fx:id="dtpDataNascita" prefHeight="40.0" prefWidth="500.0" />
-         </children>
-      </HBox>
-      <Line endX="100.0" scaleX="5.0" startX="-100.0" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button fx:id="btnCalcolaCodiceFiscale" mnemonicParsing="false" onAction="#btnCalcolaCodiceFiscaleOnClick" text="Calcola il Codice Fiscale">
+            <Button fx:id="btnCalcolaCodiceFiscale" mnemonicParsing="false" onAction="#btnCalcolaCodiceFiscaleOnClick" text="Calcola il Codice Fiscale" textFill="#003000">
                <font>
                   <Font size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Label fx:id="lblCodiceFiscale" alignment="CENTER" prefWidth="400.0" text="...">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button fx:id="btnCopiaAppunti" mnemonicParsing="false" onAction="#btnCopiaAppuntiOnClick" text="Copia negli appunti">
+            <Button fx:id="btnCopiaAppunti" mnemonicParsing="false" onAction="#btnCopiaAppuntiOnClick" text="Copia negli appunti" textFill="#003000">
                <font>
                   <Font size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </HBox>

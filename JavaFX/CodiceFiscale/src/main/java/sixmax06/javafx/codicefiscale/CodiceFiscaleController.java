@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Font;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -22,16 +23,16 @@ public class CodiceFiscaleController {
     public ToggleGroup rdbGroupGenere;
 
     @FXML
+    public DatePicker dtpDataNascita;
+
+    @FXML
     public ComboBox<String> cbbLuogoNascita;
 
     @FXML
     public CheckBox ckbEstero;
 
     @FXML
-    public DatePicker dtpDataNascita;
-
-    @FXML
-    public Button btnCalcolaCodiceFiscale;
+    public Button btnCalcolaCodiceFiscale, btnCopiaAppunti;
 
     @FXML
     public Label lblCodiceFiscale;
@@ -39,6 +40,9 @@ public class CodiceFiscaleController {
     public void initialize() {
         this.cf = new CodiceFiscale();
         cbbLuogoNascita.getItems().addAll(this.cf.getComuni().keySet());
+
+        cbbLuogoNascita.getEditor().setFont(new Font("System", 20));
+        dtpDataNascita.getEditor().setFont(new Font("System", 20));
     }
 
     public void ckbEsteroOnAction() {
