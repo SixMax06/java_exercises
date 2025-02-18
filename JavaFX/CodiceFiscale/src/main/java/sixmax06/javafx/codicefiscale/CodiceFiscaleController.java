@@ -62,7 +62,7 @@ public class CodiceFiscaleController {
             lblCodiceFiscale.setText(cf.getCodiceFiscale());
 
         } catch (Exception e) {
-            lblCodiceFiscale.setText("Errore. Controlla che i dati siano corretti");
+            lblCodiceFiscale.setText("Dati inseriti non corretti");
         }
     }
 
