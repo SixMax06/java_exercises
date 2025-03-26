@@ -82,6 +82,8 @@ public class CodiceFiscale {
     public void calcolaCognome(String cognome) throws Exception {
         if (cognome.isEmpty()) throw new Exception();
 
+        cognome = cognome.replaceAll("[^a-zA-Z]", "");
+
         this.cognome = "";
 
         int contaConsonanti = 0;
@@ -113,6 +115,8 @@ public class CodiceFiscale {
 
     public void calcolaNome(String nome) throws Exception {
         if (nome.isEmpty()) throw new Exception();
+
+        nome = nome.replaceAll("[^a-zA-Z]", "");
 
         this.nome = "";
 
