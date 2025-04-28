@@ -1,9 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         MyLinkedList list = new MyLinkedList();
-        list.add(new Node(3));
-        list.add(new Node(5));
-        list.add(new Node(7));
+        list.addFirst(3);
+        list.addFirst(5);
+        list.addFirst(7);
+        list.addFirst(9);
+        System.out.println(list.getLast());
+        list.remove(0);
         System.out.println(list);
     }
 }
