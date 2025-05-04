@@ -2,9 +2,9 @@ public class MyLinkedList {
 
      private static class Node {
         public Node next;
-        public int value;
+        public Object value;
 
-        public Node(int value, Node next) {
+        public Node(Object value, Node next) {
             this.value = value;
             this.next = next;
         }
@@ -23,7 +23,7 @@ public class MyLinkedList {
         this.size = 0;
     }
 
-    public void addFirst(int n) {
+    public void addFirst(Object n) {
         this.head = new Node(n, this.head);
         this.size++;
     }
@@ -80,11 +80,11 @@ public class MyLinkedList {
         }
     }
 
-    public int getFirst() {
+    public Object getFirst() {
         return this.head.value;
     }
 
-    public int get(int index) {
+    public Object get(int index) {
         if (index < 0 || index > this.size - 1)
             throw new IndexOutOfBoundsException();
 
@@ -95,8 +95,22 @@ public class MyLinkedList {
         return target.value;
     }
 
-    public int getLast() {
+    public Object getLast() {
         return this.get(this.size - 1);
+    }
+
+    //recent test method
+    public void insertOnes() {
+        if (this.head == null || this.size == 0)
+            return;
+        Node target = this.head;
+        target.next = new Node(1, target.next);
+        target = target.next.next;
+        for (int i = 1; i < size - 1; i++) {
+            target.next = new Node(1, target.next);
+            target = target.next.next;
+        }
+        size += (size - 1);
     }
 
     public boolean isEmpty() {
