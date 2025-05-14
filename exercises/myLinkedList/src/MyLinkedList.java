@@ -95,7 +95,20 @@ public class MyLinkedList {
         return target.value;
     }
 
+<<<<<<< Updated upstream
     public Object getLast() {
+=======
+    public void insertOnes() {
+        Node target = this.head;
+        for (int i = 1; i < this.size; i+=2) {
+            target.next = new Node(1, target.next);
+            this.size++;
+            target = target.next.next;
+        }
+    }
+
+    public int getLast() {
+>>>>>>> Stashed changes
         return this.get(this.size - 1);
     }
 
