@@ -5,6 +5,6 @@ public class Condensatore extends ComponenteElettrico {
 
     @Override
     public ComplexNumber getImpedenza() {
-        return null;
+        return new ComplexNumber(0, (double) 1 / valore);
     }
 }

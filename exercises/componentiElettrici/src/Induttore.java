@@ -5,6 +5,6 @@ public class Induttore extends ComponenteElettrico{
 
     @Override
     public ComplexNumber getImpedenza() {
-        return null;
+        return new ComplexNumber(0, valore);
     }
 }
